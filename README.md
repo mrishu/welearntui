@@ -44,4 +44,4 @@ If `welearn *course_id*` is called without options, and if a file which is to be
 The only dependency is `fzf`: https://github.com/junegunn/fzf
 
 ## TODO
-Write script for auto generating `id.file`.
+Replace webpage scraping with Moodle Web Services API.
