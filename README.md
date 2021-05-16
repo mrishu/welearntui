@@ -4,21 +4,16 @@ Personal repo for quickly downloading my uploaded class lectures on Welearn.
 ## Installation
 Use `welearninstall` script to guide you through the setup process.
 
-## `id.file`
-It consists of three tab separated columns, the first is the *Course ID* (e.g. `ma3201`) the second is its *Welearn ID* (e.g. `1018`) and the third is the *Course Name* (e.g `Topology`).  
-You will have to edit `id.file` each time the list of courses changes (be it due to logging in as another user who does not have the same set of courses or moving to another semester).
-1. The *Course ID* (set it to your choice) is the string which you will need to enter as the first argument when invoking `welearn`. Hence, its better to keep it lowercase. (e.g. `welearn ma3201`).
+## Setup Process Instructions
+I. First you will be asked to enter your username and password.
+
+II. Then you will be asked to enter `SAVE_DIR`, where the downloaded files will be saved under their corresponding *Course Name*s which you will have to enter later.
+
+Now you will be asked to fill three types of variables for each course: *Course ID*, the *Welearn ID* and the *Course Name*.  
+
+1. The *Course ID* (set it to your choice) is the string which you will need to enter as  argument when invoking `welearn`. Hence, its better to keep it lowercase. (e.g. `welearn ma3201` or `welearn -na ma3201` etc.).
 2. The *Welearn ID* can be attained by looking at the course links on the Welearn website. E.g. if the course link is `https://welearn.iiserkol.ac.in/course/view.php?id=1018`, then the *Welearn ID* for this course is `1018`. (Will write a script for auto generating that later, maybe).
 3. The *Course Name* (`course_name`) (set it to your choice) will be the name of the directory under `SAVE_DIR` where the files for that particular course will be saved. For e.g. `welearn ma3201` will save files in `SAVE_DIR/Topology/` (if `Topology` is the *Course Name* for `ma3201`).  
-
-Sample `id.file` has been provided.
-
-## `credentials.txt`
-Two separate lines should be present:
-1. First containing username.
-2. Second containing password. 
-
-Sample `credentials.txt` has been provided.
 
 ## Usage
 `welearn *course_id*` will open the resources available for `*course_id*` in `fzf`. `fzf --multi` option is enabled, so multiple resources can be dowloaded at once. Use `TAB` to select multiple resources in `fzf`.
