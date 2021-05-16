@@ -1,13 +1,5 @@
 #!/bin/sh
 
-# Usage:
-# 'welearn <name of course>' to send change notifications since last check and bring an fzf interface (Prompt will come up asking if user wants to save current check)
-
-# >>> Modify this >>>
-# The downloaded files will be saved in `$SAVE_DIR/<course name>` where `<course name>` is as listed in third of column `id.file` for the given argument.
-SAVE_DIR="$HOME/Documents/Courses/SemVI"
-# <<<<<<
-
 # Processing options
 replace_force=0
 select_all=0
@@ -41,6 +33,7 @@ course_name=$(awk -F"\t" '$1=="'"$courseid"'" {print $3}' "$DATA_DIR"/id.file)
 [ -z "$course_name" ] && printf "\033[31mERR\033[0m: Course name not assigned for \033[33m%s\033[0m in \033[35mid.file\033[0m!\n" "$courseid" && exit 1
 
 # Check whether the required directory exists and create and cd into it
+SAVE_DIR="$(cat "$DATA_DIR"/save_dir.txt)"
 COURSE_DIR="$SAVE_DIR/$course_name"
 [ ! -d "$COURSE_DIR" ] && mkdir -p "$COURSE_DIR"
 cd "$COURSE_DIR" || exit
@@ -84,7 +77,7 @@ sed 's_.*href="\([^"]*\).*<span class="instancename">\(.*\)<span class="accesshi
 if [ "$select_all" -eq 1 ]; then
 	resources=$(cat "/tmp/$courseid.data.tmp")
 else
-	resources=$(awk -F "\t+" '{printf("\033[31m%s\033[0m\t%s\n", $1,$2)}' /tmp/$courseid.data.tmp  | fzf --ansi --multi --reverse)
+	resources=$(awk -F "\t+" '{printf("\033[31m%s\033[0m\t%s\n", $1,$2)}' /tmp/"$courseid".data.tmp  | fzf --ansi --multi --reverse)
 fi
 [ -z "$resources" ] && exit 0
 
@@ -124,6 +117,8 @@ while [ "$i" -le "$numlinks" ]; do
 			curl -b "$DATA_DIR"/cookie.txt -JLO "$downloadlink"
 		else
 			printf "Skipping file '\033[31m%s\033[0m'!\n" "$remote_name"
+			# Touch once so that modified time has the same sort order as upload time in Welearn
+			touch "$COURSE_DIR/$remote_name"
 		fi
 	else
 		printf "\nDownloading file '\033[31m%s\033[0m'\n" "$remote_name"
