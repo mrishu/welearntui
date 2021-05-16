@@ -38,7 +38,7 @@ If `welearn *course_id*` is called without options, and if a file which is to be
 `welearnlogin username password` script will log you in. But, there is no need to do it as `welearn` script logs in automatically if logged out.
 
 ### `welearninstall`
-This will automate the setup process.
+This will guide the user through the setup process.
 
 ## Dependencies
 The only dependency is `fzf`: https://github.com/junegunn/fzf
