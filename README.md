@@ -9,7 +9,7 @@ Personal repo for quickly downloading my uploaded class lectures on Welearn.
 
 OR
 
-Just use `elearninstall` script to guide you through this process.
+Just use `welearninstall` script to guide you through the above process.
 
 ## `id.file`
 It consists of three tab separated columns, the first is the *Course ID* (e.g. `ma3201`) the second is its '*Welearn ID*' (e.g. `1018`) and the third is the *Course Name* (e.g `Topology`).  
