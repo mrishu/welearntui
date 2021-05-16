@@ -7,12 +7,16 @@ Personal repo for quickly downloading my uploaded class lectures on Welearn.
 3. Change the `SAVE_DIR` in `welearn` script according to where you want to save the downloaded files.
 4. Place `welearn`, `welearnlogin` scripts (after giving executable permissions) in a directory which is in your `PATH` environment variable.
 
+OR
+
+Just use `elearninstall` script to guide you through this process.
+
 ## `id.file`
-It consists of three tab separated columns, the first is the `course_id` (e.g. `ma3201`), the second is its '*Welearn ID*' (e.g. `1018`) and the third is the `course_name` (e.g `Topology`).  
+It consists of three tab separated columns, the first is the *Course ID* (e.g. `ma3201`) the second is its '*Welearn ID*' (e.g. `1018`) and the third is the *Course Name* (e.g `Topology`).  
 You will have to edit `id.file` each time the list of courses changes (be it due to logging in as another user who does not have the same set of courses or moving to another semester).
-1. The `course_id` (set it to your choice) is the string which you will need to enter as the first argument when invoking `welearn`. Hence, its better to keep it lowercase. (e.g. `welearn ma3201`).
+1. The *Course ID* (set it to your choice) is the string which you will need to enter as the first argument when invoking `welearn`. Hence, its better to keep it lowercase. (e.g. `welearn ma3201`).
 2. The '*Welearn ID*' can be attained by looking at the course links on the Welearn website. (Will write a script for auto generating that later).
-3. The `course_name` (set it to your choice) will be the name of the folder under `SAVE_DIR` where the files for that particular course will be saved. For e.g. `welearn ma3201` will save files in `SAVE_DIR/Topology/` if `Topology` is the course name for `ma3201`.  
+3. The *Course Name* (`course_name`) (set it to your choice) will be the name of the directory under `SAVE_DIR` where the files for that particular course will be saved. For e.g. `welearn ma3201` will save files in `SAVE_DIR/Topology/` (if `Topology` is the *Course Name* for `ma3201`).  
 
 Sample `id.file` has been provided.
 
@@ -40,8 +44,11 @@ If `welearn *course_id*` is called without options, and if a file which is to be
 ### `welearnlogin`
 `welearnlogin username password` script will log you in. But, there is no need to do it as `welearn` script logs in automatically if logged out.
 
+### `welearninstall`
+This will automate the setup process.
+
 ## Dependencies
 The only dependency is `fzf`: https://github.com/junegunn/fzf
 
 ## TODO
-Replace webpage scraping with Moodle Web Services API.
+Replace webpage scraping with Moodle Web Services API. (Maybe)
