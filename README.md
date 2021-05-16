@@ -9,7 +9,7 @@ I. First you will be asked to enter your username and password.
 
 II. Then you will be asked to enter `SAVE_DIR`, where the downloaded files will be saved under their corresponding *Course Name*s which you will have to enter later.
 
-Now you will be asked to fill three types of variables for each course: *Course ID*, the *Welearn ID* and the *Course Name*.  
+III. Now you will be asked to fill three variables for each course: *Course ID*, the *Welearn ID* and the *Course Name*.  
 
 1. The *Course ID* (set it to your choice) is the string which you will need to enter as  argument when invoking `welearn`. Hence, its better to keep it lowercase. (e.g. `welearn ma3201` or `welearn -na ma3201` etc.).
 2. The *Welearn ID* can be attained by looking at the course links on the Welearn website. E.g. if the course link is `https://welearn.iiserkol.ac.in/course/view.php?id=1018`, then the *Welearn ID* for this course is `1018`. (Will write a script for auto generating that later, maybe).
