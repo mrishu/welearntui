@@ -2,14 +2,7 @@
 Personal repo for quickly downloading my uploaded class lectures on Welearn.
 
 ## Installation
-1. Create `id.file` file in `~/.local/share/welearntui/` directory and edit it according to your courses. (See `id.file` section below).
-2. Create `credentials.txt` file in `~/.local/share/welearntui/` directory and edit it according to your credentials. (See `credentials.txt` section below).
-3. Change the `SAVE_DIR` in `welearn` script according to where you want to save the downloaded files.
-4. Place `welearn`, `welearnlogin` scripts (after giving executable permissions) in a directory which is in your `PATH` environment variable.
-
-OR
-
-Just use `welearninstall` script to guide you through the above process.
+Use `welearninstall` script to guide you through the setup process.
 
 ## `id.file`
 It consists of three tab separated columns, the first is the *Course ID* (e.g. `ma3201`) the second is its *Welearn ID* (e.g. `1018`) and the third is the *Course Name* (e.g `Topology`).  
