@@ -4,26 +4,16 @@
 replace_force=0
 select_all=0
 blacklist_mode=0
-if [ -n "$1" ] && [ "$1" = "-f" ]; then
-	replace_force=1
-	courseid="$2"
-elif [ -n "$1" ] && [ "$1" = "-fa" ]; then
-	replace_force=1
-	select_all=1
-	courseid="$2"
-elif [ -n "$1" ] && [ "$1" = "-n" ]; then
-	replace_force=-1
-	courseid="$2"
-elif [ -n "$1" ] && [ "$1" = "-na" ]; then
-	replace_force=-1
-	select_all=1
-	courseid="$2"
-elif [ -n "$1" ] && [ "$1" = "-b" ]; then
-	blacklist_mode=1
-	courseid="$2"
-else
-	courseid="$1"
-fi
+while getopts fnab opt; do
+	case "$opt" in
+		f) replace_force=1 ;;
+		n) replace_force=-1 ;;
+		a) select_all=1 ;;
+		b) blacklist_mode=1 ;;
+	esac
+done
+shift $(( OPTIND-1 ))
+courseid="$1"
 [ -z "$courseid" ] && exit
 
 DATA_DIR="$HOME/.local/share/welearntui"
