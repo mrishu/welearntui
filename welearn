@@ -1,15 +1,28 @@
 #!/bin/sh
 
+basic_help() {
+	printf "welearn: Shell Script to download files quickly from welearn.\n"
+	printf "USAGE: welearn [OPTIONS] <course_id>\n"
+	printf "  OPTIONS:\n"
+	printf "\t-f\tForce download resources and replace files of same name if present. (Should not be used with -n).\n"
+	printf "\t-n\tSkip downloading if file of same name present. (Should not be used with -f).\n"
+	printf "\t-a\tPut all available resources in download queue and does not show the fzf menu. (Can be paired with -f or -n).\n"
+	printf "\t-b\tStart blacklist mode.\n"
+	printf "\t-h\tPrint this help text.\n"
+}
+
 # Processing options
 replace_force=0
 select_all=0
 blacklist_mode=0
-while getopts fnab opt; do
+while getopts fnabh opt; do
 	case "$opt" in
 		f) replace_force=1 ;;
 		n) replace_force=-1 ;;
 		a) select_all=1 ;;
 		b) blacklist_mode=1 ;;
+		h) basic_help && exit 0 ;;
+		\?) basic_help && exit 1 ;;
 	esac
 done
 shift $(( OPTIND-1 ))
