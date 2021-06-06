@@ -37,6 +37,3 @@ This will guide the user through the setup process.
 
 ## Dependencies
 The only dependency is `fzf`: https://github.com/junegunn/fzf
-
-## TODO
-Replace webpage scraping with Moodle Web Services API. (Maybe)
