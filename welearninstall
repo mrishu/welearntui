@@ -11,7 +11,7 @@ read -r password
 printf "%s\n%s" "$username" "$password" > "$DATA_DIR"/credentials.txt
 printf "The above information is saved in \033[35m~/.local/share/welearntui/\033[31mcredentials.txt\033[0m.\n"
 
-printf "\nEnter SAVE_DIR (absolute path): "
+printf "\nEnter SAVE_DIR (Enter full path name like /home/user/Documents/Courses/Sem6 without ~ or environment variables): "
 read -r save_dir
 printf "%s" "$save_dir" > "$DATA_DIR"/save_dir.txt
 printf "The above information is saved in \033[35m~/.local/share/welearntui/\033[31msave_dir.txt\033[0m.\n"
