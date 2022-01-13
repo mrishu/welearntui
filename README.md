@@ -35,5 +35,8 @@ If `welearn *course_id*` is called without options, and if a file which is to be
 ### `welearninstall`
 This will guide the user through the setup process.
 
+### `welearnup`
+Helper script using `welearn` which applies the `welearn -na *course_id*` command for every `*course_id*` in `~/.local/share/welearntui/id.file`. This will automatically skip all existing files and download the new ones for each course.
+
 ## Dependencies
 The only dependency is `fzf`: https://github.com/junegunn/fzf
